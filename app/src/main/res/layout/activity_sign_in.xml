@@ -45,7 +45,7 @@
                 android:layout_height="wrap_content">
 
                 <AutoCompleteTextView
-                    android:id="@+id/emailsi"
+                    android:id="@+id/email"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Enter email"
@@ -60,7 +60,7 @@
                 android:layout_height="wrap_content">
 
                 <EditText
-                    android:id="@+id/passwordsi"
+                    android:id="@+id/password"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Enter password"
@@ -82,7 +82,7 @@
                 android:text="Sign in"
                 android:textStyle="bold"
                 android:textSize="18dp"
-                android:onClick="onClick"
+                android:onClick="signin"
                 android:background="@color/colorPrimaryDark"
                 android:textColor="#fff" />
 

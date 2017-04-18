@@ -43,25 +43,46 @@
                 android:layout_height="wrap_content">
 
                 <AutoCompleteTextView
-                    android:id="@+id/emailsu"
+                    android:id="@+id/email"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:imeActionId="@+id/register"
                     android:imeActionLabel="Signup"
                     android:imeOptions="actionUnspecified"
-                    android:hint="Enter emaill"
+                    android:hint="Enter email"
                     android:inputType="textEmailAddress"
                     android:maxLines="1"
                     android:singleLine="true" />
 
             </android.support.design.widget.TextInputLayout>
+
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="password"
                 android:inputType="textPassword"
-                android:id="@+id/passwordsu"
+                android:id="@+id/password"
                 />
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Name"
+                android:inputType="textPassword"
+                android:id="@+id/name"
+                />
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Age"
+                android:inputType="text"
+                android:id="@+id/age"
+                />
+            <Spinner
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:id="@+id/spinner"
+                android:entries="@array/gender"
+                ></Spinner>
             <Button
                 android:id="@+id/signup"
                 style="?android:textAppearanceSmall"
