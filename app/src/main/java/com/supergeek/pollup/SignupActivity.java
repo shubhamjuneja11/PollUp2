@@ -1,12 +1,15 @@
 package com.supergeek.pollup;
 
 import android.support.v4.app.LoaderManager;
+import android.support.v4.content.Loader;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.EditText;
 import android.widget.Spinner;
 
-public class SignupActivity extends AppCompatActivity implements LoaderManager.LoaderCallbacks{
+import com.supergeek.pollup.models.SignupModel;
+
+public class SignupActivity extends AppCompatActivity implements LoaderManager.LoaderCallbacks<SignupModel>{
 EditText em,pass,ag,nam;
     String email,password,name,gender;
     int age,temp;
@@ -37,6 +40,21 @@ EditText em,pass,ag,nam;
         if(temp==0)
             gender="male";
         else gender="female";
+
+    }
+
+    @Override
+    public Loader<SignupModel> onCreateLoader(int id, Bundle args) {
+        return null;
+    }
+
+    @Override
+    public void onLoadFinished(Loader<SignupModel> loader, SignupModel data) {
+
+    }
+
+    @Override
+    public void onLoaderReset(Loader<SignupModel> loader) {
 
     }
 }
