@@ -3,6 +3,9 @@ package com.supergeek.pollup;
 import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.net.Uri;
+import android.os.AsyncTask;
+import android.support.annotation.BoolRes;
 import android.support.v4.app.LoaderManager;
 import android.support.v4.content.Loader;
 import android.support.v7.app.AppCompatActivity;
@@ -11,17 +14,33 @@ import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.view.View;
 
 import com.supergeek.pollup.Loaders.NewPostLoader;
 import com.supergeek.pollup.adapters.NewPostAdapter;
 import com.supergeek.pollup.models.NewPostModel;
+import com.supergeek.pollup.models.PostDetailModel;
 
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.OutputStream;
+import java.io.OutputStreamWriter;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.nio.charset.Charset;
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity implements LoaderManager.LoaderCallbacks<NewPostModel>{
 RecyclerView recyclerView;
     ArrayList<NewPostModel> data;
     NewPostAdapter adapter;
+    String response;
+    int o;
+    String ur="http://geekyboy.16mb.com/displaypost.php";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -65,5 +84,102 @@ RecyclerView recyclerView;
             catch (Exception e){}
 
         }
+    }
+    public void setoption(View view){
+        int id=view.getId();
+      o=1;
+        switch (id)
+        {
+            case R.id.option1:o=1;
+                break;
+            case R.id.option2:o=2;
+                break;
+            case R.id.option3:o=3;
+                break;
+            case R.id.option4:o=4;
+                break;
+
+        }
+        senddata();
+    }
+    public void senddata(){
+
+    }
+
+    class MyWorker extends AsyncTask<Void,Void,Boolean>{
+
+        @Override
+        protected Boolean doInBackground(Void... params) {
+            URL url= null;
+            try {
+                url = new URL(ur);
+                connect(url);
+            } catch (MalformedURLException e) {
+                e.printStackTrace();
+            }
+
+        }
+    }
+    public boolean connect(URL url){
+        try{
+            PostDetailModel option=new PostDetailModel();
+            InputStream inputstream=null;
+            HttpURLConnection connection=null;
+            connection=(HttpURLConnection)url.openConnection();
+            connection.setRequestMethod("POST");
+            connection.setReadTimeout(10000);
+            connection.setReadTimeout(15000);
+            connection.setDoInput(true);
+            connection.setDoOutput(true);
+
+            Uri.Builder builder = new Uri.Builder()
+                    .appendQueryParameter("id",String.valueOf(option.getId()))
+                    .appendQueryParameter("gender",String.valueOf(option.getGender()))
+             .appendQueryParameter("age",String.valueOf(option.getAge()))
+                    .appendQueryParameter("option",String.valueOf(option.getOption()));
+
+            String query = builder.build().getEncodedQuery();
+
+            OutputStream os = connection.getOutputStream();
+            BufferedWriter writer = new BufferedWriter(
+                    new OutputStreamWriter(os, "UTF-8"));
+            writer.write(query);
+            writer.flush();
+            writer.close();
+            os.close();
+
+            connection.connect();
+
+            inputstream=connection.getInputStream();
+            response=readfromstream(inputstream);
+
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
+    public  String readfromstream(InputStream inputstream) {
+        Log.e("abcd", "103");
+        StringBuilder string = new StringBuilder();
+        if (inputstream != null) {
+            InputStreamReader inputreader = new InputStreamReader(inputstream, Charset.forName("UTF-8"));
+            BufferedReader reader = new BufferedReader(inputreader);
+            String line = null;
+            try {
+                line = reader.readLine();
+                while (line != null) {
+                    string.append(line);
+                    line = reader.readLine();
+                }
+                Log.e("abcd", "200");
+            } catch (IOException e) {
+                e.printStackTrace();
+                Log.e("abcd", "201");
+            }
+
+        }
+        return string.toString();
+
     }
 }
