@@ -17,12 +17,13 @@ import java.util.ArrayList;
 
 public class NewPostAdapter extends RecyclerView.Adapter<NewPostAdapter.MyViewHolder> {
     ArrayList<NewPostModel> data;
+   public  static  int position;
     public NewPostAdapter(ArrayList<NewPostModel> data){
         this.data=data;
 
     }
     @Override
-    public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType)  {
         View itemView = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.pollpost, parent, false);
 
@@ -44,7 +45,7 @@ public class NewPostAdapter extends RecyclerView.Adapter<NewPostAdapter.MyViewHo
         return data.size();
     }
 
-    public class MyViewHolder extends RecyclerView.ViewHolder {
+    public class MyViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         TextView ques,o1,o2,o3,o4;
 
         public MyViewHolder(View itemView) {
@@ -54,6 +55,13 @@ public class NewPostAdapter extends RecyclerView.Adapter<NewPostAdapter.MyViewHo
             o2=(TextView)itemView.findViewById(R.id.option2);
             o3=(TextView)itemView.findViewById(R.id.option3);
             o4=(TextView)itemView.findViewById(R.id.option4);
+
+            itemView.setOnClickListener(this);
+        }
+
+        @Override
+        public void onClick(View v) {
+            position=getAdapterPosition();
         }
     }
 }

@@ -39,8 +39,10 @@ RecyclerView recyclerView;
     ArrayList<NewPostModel> data;
     NewPostAdapter adapter;
     String response;
-    int o;
-    String ur="http://geekyboy.16mb.com/displaypost.php";
+    int o,position,id;
+    int age=21;
+    String gender="M";
+    String ur="http://geekyboy.16mb.com/polldetail.php";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -103,6 +105,9 @@ RecyclerView recyclerView;
         senddata();
     }
     public void senddata(){
+         position=NewPostAdapter.position;
+         id=data.get(position).getId();
+        new MyWorker().execute();
 
     }
 
@@ -117,12 +122,12 @@ RecyclerView recyclerView;
             } catch (MalformedURLException e) {
                 e.printStackTrace();
             }
-
+        return true;
         }
     }
     public boolean connect(URL url){
         try{
-            PostDetailModel option=new PostDetailModel();
+            PostDetailModel option=new PostDetailModel(id,age,o,gender);
             InputStream inputstream=null;
             HttpURLConnection connection=null;
             connection=(HttpURLConnection)url.openConnection();
