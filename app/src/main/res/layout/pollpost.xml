@@ -11,7 +11,7 @@
     android:id="@+id/ques"
     android:text="Dlfnnqlknlqknklqnlkqnflkqnfklqnf"
     android:textSize="30dp"
-    android:textColor="black"
+    android:textColor="@color/black"
     />
     <LinearLayout
         android:layout_width="match_parent"
@@ -64,7 +64,7 @@
     android:layout_marginTop="10dp"
     android:textSize="20dp"
     android:layout_height="20dp"
-    android:textColor="black"
+    android:textColor="@color/black"
     android:text="View Statistics"
     android:gravity="center"
     />

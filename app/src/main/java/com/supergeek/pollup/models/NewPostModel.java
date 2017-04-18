@@ -5,8 +5,15 @@ package com.supergeek.pollup.models;
  */
 
 public class NewPostModel {
-    String ques;
-    String option1;
+    int id;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public String getQues() {
         return ques;
@@ -56,88 +63,17 @@ public class NewPostModel {
         this.author = author;
     }
 
-    public int getOp1count() {
-        return op1count;
-    }
+    public NewPostModel(int id, String ques, String option1, String option2, String option3, String option4, String author) {
 
-    public void setOp1count(int op1count) {
-        this.op1count = op1count;
-    }
-
-    public int getOp2count() {
-        return op2count;
-    }
-
-    public void setOp2count(int op2count) {
-        this.op2count = op2count;
-    }
-
-    public int getOp3count() {
-        return op3count;
-    }
-
-    public void setOp3count(int op3count) {
-        this.op3count = op3count;
-    }
-
-    public int getOp4count() {
-        return op4count;
-    }
-
-    public void setOp4count(int op4count) {
-        this.op4count = op4count;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
         this.id = id;
-    }
-
-    public int getMale() {
-        return male;
-    }
-
-    public void setMale(int male) {
-        this.male = male;
-    }
-
-    public int getFemale() {
-        return female;
-    }
-
-    public void setFemale(int female) {
-        this.female = female;
-    }
-
-    String option2;
-    String option3;
-    String option4;
-    String author;
-    int op1count;
-    int op2count;
-    int op3count;
-    int op4count;
-    int id;
-
-    public NewPostModel(String ques, String option1, String option2, String option3, String option4, String author, int op1count, int op2count, int op3count, int op4count, int id, int male, int female) {
         this.ques = ques;
         this.option1 = option1;
         this.option2 = option2;
         this.option3 = option3;
         this.option4 = option4;
         this.author = author;
-        this.op1count = op1count;
-        this.op2count = op2count;
-        this.op3count = op3count;
-        this.op4count = op4count;
-        this.id = id;
-        this.male = male;
-        this.female = female;
     }
 
-    int male;
-    int female;
+    String ques,option1,option2,option3,option4,author;
+
 }
