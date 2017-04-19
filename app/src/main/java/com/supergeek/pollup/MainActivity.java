@@ -193,4 +193,8 @@ RecyclerView recyclerView;
         intent.putExtra("id",id);
         startActivity(intent);
     }
+    public void opennewpoll(View view){
+        Intent intent=new Intent(this,AskPollActivity.class);
+        startActivity(intent);
+    }
 }

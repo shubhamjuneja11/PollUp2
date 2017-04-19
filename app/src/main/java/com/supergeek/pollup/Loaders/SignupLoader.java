@@ -2,6 +2,7 @@ package com.supergeek.pollup.Loaders;
 
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.support.v4.content.AsyncTaskLoader;
 import android.util.Log;
@@ -28,6 +29,8 @@ public class SignupLoader extends AsyncTaskLoader<SignupModel> {
     String ur="http://geekyboy.16mb.com/pollsignup.php";
     String response;
    URL url;
+    public static String email,gender;
+    public static int age;
     public SignupLoader(Context context,SignupModel model) {
         super(context);
         this.model=model;
@@ -69,6 +72,7 @@ public class SignupLoader extends AsyncTaskLoader<SignupModel> {
 
             inputstream=connection.getInputStream();
             response=readfromstream(inputstream);
+
             Log.e("abcd","2");
         } catch (IOException e) {
             e.printStackTrace();
