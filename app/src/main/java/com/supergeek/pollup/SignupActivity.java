@@ -66,7 +66,7 @@ EditText em,pass,ag,nam;
 
     @Override
     public void onLoadFinished(Loader<SignupModel> loader, SignupModel data) {
-        Intent intent=new Intent(this,SignupActivity.class);
+        Intent intent=new Intent(this,SignInActivity.class);
         startActivity(intent);
     }
 
