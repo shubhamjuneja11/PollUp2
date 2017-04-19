@@ -30,7 +30,7 @@ import static com.supergeek.pollup.Loaders.SignupLoader.readfromstream;
 public class PostDetailLoader extends AsyncTaskLoader<PostDetailModel> {
     String u="http://geekyboy.16mb.com/getpolldetail.php";
     String response;
-    int m1,m2,m3,m4,f1,f2,f3,f4,a1,a2,a3;
+    public static int m1,m2,m3,m4,f1,f2,f3,f4,a11,a12,a13,a14,a21,a22,a23,a24,a31,a32,a33,a34;
     public PostDetailLoader(Context context) {
         super(context);
     }
@@ -89,9 +89,21 @@ public class PostDetailLoader extends AsyncTaskLoader<PostDetailModel> {
             f3=jsonObject.getInt("female3");
             f4=jsonObject.getInt("female4");
 
-            a1=jsonObject.getInt("age1");
-            a2=jsonObject.getInt("age2");
-            a3=jsonObject.getInt("age3");
+            a11=jsonObject.getInt("age11");
+            a12=jsonObject.getInt("age12");
+            a13=jsonObject.getInt("age13");
+            a14=jsonObject.getInt("age14");
+
+            a21=jsonObject.getInt("age21");
+            a22=jsonObject.getInt("age22");
+            a23=jsonObject.getInt("age23");
+            a24=jsonObject.getInt("age24");
+
+            a31=jsonObject.getInt("age31");
+            a32=jsonObject.getInt("age32");
+            a33=jsonObject.getInt("age33");
+            a34=jsonObject.getInt("age34");
+
             Log.e("abcd","done");
         } catch (JSONException e) {
             e.printStackTrace();
