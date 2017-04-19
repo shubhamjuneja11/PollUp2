@@ -12,12 +12,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        <activity android:name=".MainActivity"></activity>
+        <activity android:name=".SignupActivity" />
+        <activity android:name=".SignInActivity" />
+        <activity android:name=".StatsActivity">
 
         </activity>
-        <activity android:name=".SignupActivity"></activity>
-        <activity android:name=".SignInActivity"></activity>
-        <activity android:name=".StatsActivity">
+        <activity android:name=".AskPollActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

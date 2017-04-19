@@ -107,7 +107,7 @@ RecyclerView recyclerView;
     }
     public void senddata(){
          position=NewPostAdapter.position;
-         id=data.get(position).getId();
+       //  id=data.get(position).getId();
         new MyWorker().execute();
 
     }

@@ -5,15 +5,9 @@ package com.supergeek.pollup.models;
  */
 
 public class NewPostModel {
-    int id;
 
-    public int getId() {
-        return id;
-    }
 
-    public void setId(int id) {
-        this.id = id;
-    }
+
 
     public String getQues() {
         return ques;
@@ -63,9 +57,9 @@ public class NewPostModel {
         this.author = author;
     }
 
-    public NewPostModel(int id, String ques, String option1, String option2, String option3, String option4, String author) {
+    public NewPostModel( String ques, String option1, String option2, String option3, String option4, String author) {
 
-        this.id = id;
+
         this.ques = ques;
         this.option1 = option1;
         this.option2 = option2;
