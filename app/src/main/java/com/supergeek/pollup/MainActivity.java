@@ -1,6 +1,7 @@
 package com.supergeek.pollup;
 
 import android.content.Context;
+import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.Uri;
@@ -89,7 +90,7 @@ RecyclerView recyclerView;
     }
     public void setoption(View view){
         int id=view.getId();
-      o=1;
+
         switch (id)
         {
             case R.id.option1:o=1;
@@ -186,5 +187,10 @@ RecyclerView recyclerView;
         }
         return string.toString();
 
+    }
+    public void chechstats(View view){
+        Intent intent =new Intent(this,StatsActivity.class);
+        intent.putExtra("id",id);
+        startActivity(intent);
     }
 }

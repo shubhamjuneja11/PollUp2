@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">PollUp</string>
     <array name="gender">
-       <item>Male</item>
+        <item>Male</item>
         <item>Female</item>
     </array>
 </resources>
