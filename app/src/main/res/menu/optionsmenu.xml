@@ -1,0 +1,27 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/option1"
+        android:orderInCategory="100"
+        app:showAsAction="never"
+        
+        android:title="Option 1"/>
+    <item
+        android:id="@+id/option2"
+        app:showAsAction="never"
+        android:title="Option 2">
+    </item>
+    <item
+        android:id="@+id/option3"
+        app:showAsAction="never"
+        android:title="Option 3">
+    </item>
+    <item
+        android:id="@+id/option4"
+        app:showAsAction="never"
+        android:title="Option 4">
+    </item>
+
+
+</menu>
