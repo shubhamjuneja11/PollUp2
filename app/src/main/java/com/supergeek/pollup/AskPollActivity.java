@@ -59,7 +59,7 @@ EditText ques,o1,o2,o3,o4;
 
     @Override
     public void onLoadFinished(Loader loader, Object data) {
-
+        onBackPressed();
     }
 
     @Override
