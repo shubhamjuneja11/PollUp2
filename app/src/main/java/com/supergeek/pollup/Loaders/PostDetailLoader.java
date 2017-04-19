@@ -1,8 +1,10 @@
 package com.supergeek.pollup.Loaders;
 
-import android.content.AsyncTaskLoader;
+
 import android.content.Context;
 import android.net.Uri;
+import android.support.v4.content.AsyncTaskLoader;
+import android.util.Log;
 
 import com.supergeek.pollup.models.PostDetailModel;
 
@@ -26,7 +28,7 @@ import static com.supergeek.pollup.Loaders.SignupLoader.readfromstream;
  */
 
 public class PostDetailLoader extends AsyncTaskLoader<PostDetailModel> {
-    String u="http://geekyboy.16mb.com/polldetail.php";
+    String u="http://geekyboy.16mb.com/getpolldetail.php";
     String response;
     int m1,m2,m3,m4,f1,f2,f3,f4,a1,a2,a3;
     public PostDetailLoader(Context context) {
@@ -75,6 +77,7 @@ public class PostDetailLoader extends AsyncTaskLoader<PostDetailModel> {
     public void  loaddata(){
 
         try {
+            Log.e("abcd",response);
             JSONObject jsonObject=new JSONObject(response);
             m1=jsonObject.getInt("male1");
             m2=jsonObject.getInt("male2");
@@ -86,6 +89,10 @@ public class PostDetailLoader extends AsyncTaskLoader<PostDetailModel> {
             f3=jsonObject.getInt("female3");
             f4=jsonObject.getInt("female4");
 
+            a1=jsonObject.getInt("age1");
+            a2=jsonObject.getInt("age2");
+            a3=jsonObject.getInt("age3");
+            Log.e("abcd","done");
         } catch (JSONException e) {
             e.printStackTrace();
         }
